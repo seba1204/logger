@@ -1,0 +1,24 @@
+{
+  "name": "logger",
+  "version": "0.0.1",
+  "description": "a personal console logger for my node.js apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/seba1204/logger.git"
+  },
+  "author": "seba1204",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seba1204/logger/issues"
+  },
+  "homepage": "https://github.com/seba1204/logger#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "date-time": "^3.1.0",
+    "node-emoji": "^1.10.0"
+  }
+}
