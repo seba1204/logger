@@ -34,4 +34,4 @@ log({
     - dev : development
     - prod : production
 
-a NOD_ENV Boolean variable is required : `loggerTime` (default : true) : enable or disable the logging date time
+a **NOD_ENV** Boolean variable is required : `loggerTime` (default : true) : enable or disable the logging date time
