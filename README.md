@@ -7,13 +7,13 @@ ou :
 `$ npm i -S logger`
 
 # Usage
-`const log = require('logger');
-log({
-  name: 'Express',
-  status: 'reg',
-  value: 'is connected on port 3000 !',
-  mode: 'dev'
-  })`
+`const log = require('logger');`
+`log({`
+`  status: 'reg',`
+`  name: 'Express',`
+`  value: 'is connected on port 3000 !',`
+`  mode: 'dev'`
+`  })`
 
 4 parameters are expected :
 * name : name of application who is talking
