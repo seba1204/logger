@@ -33,5 +33,7 @@ log({
 * mode :
     - dev : development
     - prod : production
+* showTime : show dateTime
+* clear : clear console before logging
 
-a **NOD_ENV** Boolean variable is required : `loggerTime` (default : true) : enable or disable the logging date time
+a **NOD_ENV** Boolean variable can be used instead of clear parameter : `loggerTime` (default : false) : enable or disable the logging date time
