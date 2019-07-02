@@ -21,7 +21,7 @@ log({
   mode: 'dev'
   })  
 ```
-4 parameters are expected :
+6 parameters are expected :
 * name : name of application who is talking
 * status :
     - reg : regular
