@@ -4,7 +4,7 @@
   "description": "a personal console logger for my node.js apis",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "date-time": "^3.1.0",
+    "emoji": "^0.3.2",
     "node-emoji": "^1.10.0"
   }
 }

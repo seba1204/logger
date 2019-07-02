@@ -1,63 +1,90 @@
-import emoji from 'node-emoji'
-import chalk from 'chalk'
-import dateTime from 'date-time'
+//const log = require('./logger');
+
+const emoji = require('node-emoji');
+const chalk = require('chalk');
+const dateTime = require('date-time');
 
 
-const log = ({name, mode, status, value}) => {
+var log = function({name, mode, status, value, clear, showTime}){
 
-  const regular = chalk.dim.white;
-  const error = chalk.bold.red;
-  const warning = chalk.keyword('orange');
-  const success = chalk.keyword('green').bold
-  const successEmoji = emoji.get('heavy_check_mark')
-  const errorEmoji = emoji.get('x')
-  const warningEmoji = emoji.get('zap')
-  const waitingEmoji = emoji.get('hourglass')
+  //definition of styles to apply
+  const s = {
+    regular: chalk.dim.white,
+    error: chalk.bold.red,
+    warning: chalk.keyword('orange'),
+    success: chalk.keyword('green').bold,
+    devMode: chalk.cyan,
+    prodMode: chalk.magenta,
+    time: chalk.grey
+  }
 
-  let style = warning
-  let modestyle = warning
-  let emojiToDisplay = warningEmoji
+  //definition of emoji to display
+  const e = {
+    success: emoji.get('heavy_check_mark'),
+    error: emoji.get('x'),
+    warning: emoji.get('zap'),
+    waiting: emoji.get('hourglass')
+  }
 
-  switch (status){
+  var emojiToDisplay = e.warning;
+  var globalStyle = s.regular;
+  var modeStyle = s.regular;
+  var timeStyle = s.time;
+
+  switch(status){
     case 'ok':
-      style = success
-      emojiToDisplay = successEmoji
+      globalStyle = s.success
+      emojiToDisplay = e.success
       break
     case 'warn':
-      style = warning
-      emojiToDisplay = warningEmoji
+      globalStyle = s.warning
+      emojiToDisplay = e.warning
       break
     case 'err':
-      style = error
-      emojiToDisplay = errorEmoji
+      globalStyle = s.error
+      emojiToDisplay = e.error
       break
     case 'reg':
-      style = regular
-      emojiToDisplay = successEmoji
+      globalStyle = s.regular
+      emojiToDisplay = e.success
       break
     case 'wait':
-      style = regular
-      emojiToDisplay = waitingEmoji
+      globalStyle = s.regular
+      emojiToDisplay = e.waiting
       break
     default:
-      style = error
-      emojiToDisplay = errorEmoji
-      break
+      globalStyle = s.error
+      emojiToDisplay = e.error
+    break
   }
+
   switch (mode){
     case 'dev':
-      modestyle = chalk.cyan
+      modeStyle = s.devMode
       break
     case 'prod':
-      modestyle = chalk.magenta
+      modeStyle = s.prodMode
       break
   }
+
 
   !mode ? mode = "" : mode = `[${mode}]`
   !name ? name = "" : name = `[${name}]`
   !value ? value = "" : value = `${value}`
+  if(clear){ console.clear() }
+  var time = ""
+  if (process.env.loggerTime || showTime){
+    time = dateTime({showMilliseconds: true})
+  }
 
-  console.log(`${dateTime({showMilliseconds: true})} - ${emojiToDisplay}${style(name)}${modestyle(mode)} ${style(value)}`)
-}
+  console.log(
+    timeStyle(time),
+    emojiToDisplay,
+    globalStyle(name),
+    modeStyle(mode),
+    globalStyle(value)
+  )
 
-export default log
+};
+
+module.exports = log
