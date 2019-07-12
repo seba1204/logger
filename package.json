@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/seba1204/logger#readme",
   "dependencies": {
-    "chalk": "^2.4.2",
-    "date-time": "^3.1.0",
-    "emoji": "^0.3.2",
-    "node-emoji": "^1.10.0"
+    "chalk": ">=2.4.2",
+    "date-time": ">=3.1.0",
+    "emoji": ">=0.3.2",
+    "node-emoji": ">=1.10.0"
   }
 }
