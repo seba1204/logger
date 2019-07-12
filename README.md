@@ -3,12 +3,12 @@ a personal console logger for my node.js apis
 
 # Install
 ```console
-$ npm install logger
+$ npm install my-own-logger
 ```
 ou :
 
 ```console
-$ npm i -S logger
+$ npm i -S my-own-logger
 ```
 
 # Usage
