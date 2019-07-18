@@ -13,6 +13,7 @@ var log = function({name, mode, status, value, clear, showTime}){
     error: chalk.bold.red,
     warning: chalk.keyword('orange'),
     success: chalk.keyword('green').bold,
+    info: chalk.keyword('blue').bold,
     devMode: chalk.cyan,
     prodMode: chalk.magenta,
     time: chalk.grey
@@ -20,8 +21,9 @@ var log = function({name, mode, status, value, clear, showTime}){
 
   //definition of emoji to display
   const e = {
-    success: emoji.get('heavy_check_mark'),
+    success: emoji.get('white_check_mark'),
     error: emoji.get('x'),
+    info: emoji.get('heavy_exclamation_mark'),
     warning: emoji.get('zap'),
     waiting: emoji.get('hourglass')
   }
@@ -52,9 +54,13 @@ var log = function({name, mode, status, value, clear, showTime}){
       globalStyle = s.regular
       emojiToDisplay = e.waiting
       break
+    case 'info':
+      globalStyle = s.regular
+      emojiToDisplay = e.waiting
+      break
     default:
-      globalStyle = s.error
-      emojiToDisplay = e.error
+      globalStyle = s.info
+      emojiToDisplay = e.info
     break
   }
 
