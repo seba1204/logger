@@ -21,10 +21,10 @@ var log = function({name, mode, status, value, clear, showTime}){
 
   //definition of emoji to display
   const e = {
-    success: emoji.get('white_check_mark'),
+    success: emoji.get('heavy_check_mark'),
     error: emoji.get('x'),
-    info: emoji.get('heavy_exclamation_mark'),
-    warning: emoji.get('zap'),
+    info: emoji.get('grey_exclamation'),
+    warning: emoji.get('warning'),
     waiting: emoji.get('hourglass')
   }
 
@@ -92,5 +92,4 @@ var log = function({name, mode, status, value, clear, showTime}){
   )
 
 };
-
 module.exports = log
