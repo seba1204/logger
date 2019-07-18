@@ -1,6 +1,6 @@
 {
   "name": "my-own-logger",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a personal console logger for my node.js apis",
   "main": "index.js",
   "scripts": {
