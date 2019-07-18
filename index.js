@@ -55,12 +55,12 @@ var log = function({name, mode, status, value, clear, showTime}){
       emojiToDisplay = e.waiting
       break
     case 'info':
-      globalStyle = s.regular
-      emojiToDisplay = e.waiting
-      break
-    default:
       globalStyle = s.info
       emojiToDisplay = e.info
+      break
+    default:
+      globalStyle = s.error
+      emojiToDisplay = e.error
     break
   }
 
