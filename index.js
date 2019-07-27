@@ -76,7 +76,7 @@ var log = function({name, mode, status, value, clear, showTime}){
 
   !mode ? mode = "" : mode = `[${mode}]`
   !name ? name = "" : name = `[${name}]`
-  !value ? value = "" : value = `${value}`
+  !value ? value = "" : value = value
   if(clear){ console.clear() }
   var time = ""
   if (process.env.loggerTime || showTime){
