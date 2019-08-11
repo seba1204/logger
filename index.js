@@ -83,7 +83,13 @@ var log = function({name, mode, status, value, clear, showTime}){
     time = dateTime({showMilliseconds: true})
   }
 
-  console.log(`${timeStyle(time)}${emojiToDisplay}${globalStyle(name)}${modeStyle(mode)}${globalStyle(value)}`)
+  console.log(
+    timeStyle(time) +
+    emojiToDisplay +
+    globalStyle(name) +
+    modeStyle(mode) +
+    globalStyle(value)
+  )
 
 };
 module.exports = log
