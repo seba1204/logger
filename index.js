@@ -84,11 +84,12 @@ var log = function({name, mode, status, value, clear, showTime}){
   }
 
   console.log(
-    timeStyle(time) +
-    emojiToDisplay +
-    globalStyle(name) +
-    modeStyle(mode) +
-    globalStyle(value)
+    timeStyle(time).concat(
+      emojiToDisplay,
+      globalStyle(name),
+      modeStyle(mode),
+      globalStyle(value)
+    )
   )
 
 };
