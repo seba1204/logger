@@ -4,7 +4,9 @@
   "description": "a personal console logger for my node.js apis",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "build": "babel src --out-dir lib",
+    "start": "nodemon --exec babel-node src/index.js",
+    "serve": "node lib/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,16 @@
   "homepage": "https://github.com/seba1204/logger#readme",
   "dependencies": {
     "chalk": ">=2.4.2",
-    "date-time": ">=3.1.0",
     "node-emoji": ">=1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^2.0.2"
   }
 }
