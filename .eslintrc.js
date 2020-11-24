@@ -3,9 +3,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: [
-    'airbnb-base',
-  ],
+  extends: ['airbnb-base'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -18,4 +16,4 @@ module.exports = {
     'comma-dangle': 'off', // can omit the last comma on objects
     semi: [2, 'never'], // no use of semi-colon
   },
-};
+}
