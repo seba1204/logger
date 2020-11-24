@@ -2,8 +2,12 @@ import emoji from "node-emoji";
 import chalk from "chalk";
 import moment from "moment";
 
+let showTime = false
+let setTime = 'HH mm ss'
+let clearOnce = true
+let clear = false
 
-const log = ({ name, mode, status, value, clear, showTime }) => {
+export default ({ name, mode, status, value, clear, showTime }) => {
   // definition of styles to apply
   const s = {
     regular: chalk.dim.white,
@@ -14,7 +18,7 @@ const log = ({ name, mode, status, value, clear, showTime }) => {
     devMode: chalk.cyan,
     prodMode: chalk.magenta,
     time: chalk.grey,
-  };
+  }
 
   // definition of emoji to display
   const e = {
@@ -23,7 +27,7 @@ const log = ({ name, mode, status, value, clear, showTime }) => {
     info: emoji.get("grey_exclamation"),
     warning: emoji.get("warning"),
     waiting: emoji.get("hourglass"),
-  };
+  }
 
   let emojiToDisplay = e.warning;
   let globalStyle = s.regular;
@@ -88,6 +92,5 @@ const log = ({ name, mode, status, value, clear, showTime }) => {
       modeStyle(mode),
       globalStyle(value)
     )
-  );
-};
-module.exports = log;
+  )
+}

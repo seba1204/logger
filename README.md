@@ -56,23 +56,26 @@ You have to execture this commands before any logging.
 |:------------:|:-------:|:-------------:|:----------------------------:|:-------------------:|
 | showTime | boolean | ``false``         | log the date time before all | ``true``, ``false`` |
 | setTime | string | ``'HH mm ss'``        | set the format of the time | all kind of format that [moment.js](https://momentjs.com/docs/#/parsing/) accepts ([ISO 8601](https://en.wikipedia.org/wiki/ISO_8601))|
-| clearOnce | boolean | ``false``         | clear console on the first log | ``true``, ``false`` |
+| clearOnce | boolean | ``true``         | clear console on the first log | ``true``, ``false`` |
 | clear | boolean | ``false``         | clear console on every log | ``true``, ``false`` |
 
 For example (in es6), if your main file is ``index.js``:
 
 ```js
 // index.js
-import log from 'my-own-logger'
+import log, { settings as setLog } from 'my-own-logger'
 
 // Show time on every log
-log.showTime = true
+setLog.showTime = true
 
 // clear console on the first log
-log.clearOnce = true
+setLog.clearOnce = true
 
 // Display milliseconds
-log.setTime = 'HH mm ss SS'
+setLog.setTime = 'HH mm ss SS'
+
+// Log something
+log({name: 'Server', value: 'yes', status: 'ok'})
 ```
 
 ## Example
