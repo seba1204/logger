@@ -2,10 +2,17 @@ import emoji from "node-emoji";
 import chalk from "chalk";
 import moment from "moment";
 
-let showTime = false
-let setTime = 'HH mm ss'
-let clearOnce = true
-let clear = false
+let showTime = false;
+let setTime = "HH:mm:ss";
+let clearOnce = true;
+let clear = false;
+
+export const settings = {
+  showTime,
+  setTime,
+  clearOnce,
+  clear,
+}
 
 export default ({ name, mode, status, value, clear, showTime }) => {
   // definition of styles to apply
@@ -14,7 +21,7 @@ export default ({ name, mode, status, value, clear, showTime }) => {
     error: chalk.bold.red,
     warning: chalk.keyword("orange"),
     success: chalk.keyword("green").bold,
-    info: chalk.keyword("blue").bold,
+    info: chalk.keyword("cyan").bold,
     devMode: chalk.cyan,
     prodMode: chalk.magenta,
     time: chalk.grey,
@@ -74,23 +81,17 @@ export default ({ name, mode, status, value, clear, showTime }) => {
       break;
   }
 
-  !mode ? (mode = "") : (mode = `[${mode}]`);
-  !name ? (name = "") : (name = `[${name}]`);
+  !mode ? (mode = "") : (mode = `[${mode}] `);
+  !name ? (name = "") : (name = `[${name}] `);
   !value ? (value = "") : (value = value);
-  if (clear) {
-    console.clear();
+  if (clear || settings.clear || settings.clearOnce) {
+    console.clear()
   }
-  let time = "";
-  if (process.env.loggerTime || showTime) {
-    time = dateTime({ showMilliseconds: true });
+  if (settings.clearOnce) settings.clearOnce = false
+  let time = ""
+  if (showTime || settings.showTime) {
+    time = `${moment().format(settings.setTime)} `
   }
 
-  console.log(
-    timeStyle(time).concat(
-      emojiToDisplay,
-      globalStyle(name),
-      modeStyle(mode),
-      globalStyle(value)
-    )
-  )
+  console.log(`${timeStyle(time)}${emojiToDisplay} ${globalStyle(name)}${modeStyle(mode)}${globalStyle(value)}`)
 }
