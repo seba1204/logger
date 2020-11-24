@@ -5,19 +5,19 @@ A personal console logger for my node.js APIs.
 ## Install
 
 ```console
-npm install my-own-logger
+npm install my-own-log
 ```
 
 ou :
 
 ```console
-npm i -S my-own-logger
+npm i -S my-own-log
 ```
 
 ## Usage
 
 ```js
-const log = require('my-own-logger');
+const log = require('my-own-log');
 log({
   name: 'Express',
   status: 'reg',
@@ -63,7 +63,7 @@ For example (in es6), if your main file is ``index.js``:
 
 ```js
 // index.js
-import log, { settings as setLog } from 'my-own-logger'
+import log, { settings as setLog } from 'my-own-log'
 
 // Show time on every log
 setLog.showTime = true
@@ -81,7 +81,7 @@ log({name: 'Server', value: 'yes', status: 'ok'})
 ## Example
 
 ```js
-const log = require('my-own-logger');
+const log = require('my-own-log');
 log({
   name: 'Express',
   status: 'ok',
