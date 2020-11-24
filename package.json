@@ -1,5 +1,5 @@
 {
-  "name": "@seba1204/my-own-logger",
+  "name": "my-own-logger",
   "version": "0.0.14",
   "description": "a personal console logger for my node.js APIs",
   "main": "lib/index.js",
