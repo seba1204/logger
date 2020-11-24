@@ -1,5 +1,5 @@
 {
-  "name": "my-own-logger",
+  "name": "@seba1204/my-own-logger",
   "version": "0.0.14",
   "description": "a personal console logger for my node.js APIs",
   "main": "lib/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/seba1204/logger.git"
+    "url": "git://github.com/seba1204/logger.git"
   },
   "author": "seba12",
   "license": "ISC",
