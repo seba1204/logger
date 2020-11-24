@@ -1,8 +1,8 @@
 {
   "name": "my-own-logger",
-  "version": "0.0.13",
-  "description": "a personal console logger for my node.js apis",
-  "main": "index.js",
+  "version": "0.0.14",
+  "description": "a personal console logger for my node.js APIs",
+  "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
     "start": "nodemon --exec babel-node src/index.js",
@@ -19,17 +19,18 @@
   },
   "homepage": "https://github.com/seba1204/logger#readme",
   "dependencies": {
-    "chalk": ">=2.4.2",
-    "node-emoji": ">=1.10.0"
+    "chalk": "^4.1.0",
+    "moment": "^2.29.1",
+    "node-emoji": "^1.10.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "nodemon": "^2.0.2"
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.8",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.7",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.6"
   }
 }
