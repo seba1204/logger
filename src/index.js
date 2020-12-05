@@ -1,6 +1,6 @@
-import emoji from 'node-emoji'
 import chalk from 'chalk'
 import moment from 'moment'
+import emoji from 'node-emoji'
 
 const showTime = false
 const setTime = 'HH:mm:ss'
@@ -11,12 +11,10 @@ export const settings = {
   showTime,
   setTime,
   clearOnce,
-  clear,
+  clear
 }
 
-export default ({
-  name, mode, status, value, clear, showTime
-}) => {
+export default ({ name, mode, status, value, clear, showTime }) => {
   // definition of styles to apply
   const s = {
     regular: chalk.dim.white,
@@ -26,16 +24,16 @@ export default ({
     info: chalk.cyan.bold,
     devMode: chalk.cyan,
     prodMode: chalk.magenta,
-    time: chalk.grey,
+    time: chalk.grey
   }
 
   // definition of emoji to display
   const e = {
-    success: emoji.get('heavy_check_mark'),
-    error: emoji.get('x'),
-    info: emoji.get('grey_exclamation'),
-    warning: emoji.get('warning'),
-    waiting: emoji.get('hourglass'),
+    success: ':heavy_check_mark:',
+    error: ':x:',
+    info: ':grey_exclamation:',
+    warning: ':warning:',
+    waiting: ':hourglass:'
   }
 
   let emojiToDisplay = e.warning
@@ -81,6 +79,9 @@ export default ({
     case 'prod':
       modeStyle = s.prodMode
       break
+    default:
+      modeStyle = s.devMode
+      break
   }
 
   !mode ? (mode = '') : (mode = `[${mode}] `)
@@ -95,5 +96,11 @@ export default ({
     time = `${moment().format(settings.setTime)} `
   }
 
-  console.log(`${timeStyle(time)}${emojiToDisplay} ${globalStyle(name)}${modeStyle(mode)}${globalStyle(value)}`)
+  console.log(
+    emoji.emojify(
+      `${timeStyle(time)}${emojiToDisplay} ${globalStyle(name)}${modeStyle(mode)}${globalStyle(
+        value
+      )}`
+    )
+  )
 }
